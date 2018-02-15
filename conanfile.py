@@ -61,8 +61,14 @@ class FlatBuffersConan(ConanFile):
                   src=self.build_dir, keep_path=False)
         self.copy("flathash", dst="bin",
                   src=self.build_dir, keep_path=False)
+        self.copy("*.exe", dst="bin",
+                  src=self.build_dir, keep_path=False)
         self.copy("*.h", dst="include/flatbuffers",
                   src="%s/include/flatbuffers" % self.folder_name)
+        self.copy("*.lib", dst="lib",
+                  src=self.build_dir, keep_path=False)
+        self.copy("*.dll", dst="bin",
+                  src=self.build_dir, keep_path=False)
         self.copy("*.a", dst="lib",
                   src=self.build_dir, keep_path=False)
         self.copy("*.so*", dst="lib",

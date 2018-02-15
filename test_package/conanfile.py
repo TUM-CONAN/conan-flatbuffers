@@ -15,7 +15,9 @@ class FlatbuffersTestConan(ConanFile):
 
     def imports(self):
         self.copy("flatc", dst="bin", src="bin")
+        self.copy("flatc.exe", dst="bin", src="bin")
         self.copy("*.dylib*", dst="bin", src="lib")
+        self.copy("*.dll", dst="bin", src="bin")
 
     def test(self):
         os.chdir("bin")
