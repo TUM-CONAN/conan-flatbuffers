@@ -72,4 +72,4 @@ class FlatBuffersConan(ConanFile):
         self.copy("LICENSE.FlatBuffers", src=self.folder_name)
 
     def package_info(self):
-        self.cpp_info.libs = ["flatbuffers"]
+        self.cpp_info.libs = tools.collect_libs(self)
