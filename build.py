@@ -5,7 +5,7 @@ import platform
 
 if __name__ == "__main__":
     builder = ConanMultiPackager()
-    builder.add_common_builds(shared_option_name="flatbuffers:shared", pure_c=True)
+    builder.add_common_builds(shared_option_name="flatbuffers:shared", pure_c=False)
     builder.builds = [
         [settings, options, env_vars, build_requires, reference]
         for settings, options, env_vars, build_requires, reference in builder.items
