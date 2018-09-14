@@ -5,10 +5,7 @@ from conans.util import files
 
 class FlatBuffersConan(ConanFile):
     version = "1.9.0"
-    # SHA256 Checksum for this versioned release (.tar.gz)
-    # NOTE: This should be updated every time the version is updated
-    archive_sha256 = "c45029c0a0f1a88d416af143e34de96b3091642722aa2d8c090916c6d1498c2e"
-
+    
     name = "flatbuffers"
     license = "https://github.com/google/flatbuffers/blob/master/LICENSE.txt"
     description = "FlatBuffers is an efficient cross platform serialization library for games and other memory constrained apps. It allows you to directly access serialized data without unpacking/parsing it first, while still having great forwards/backwards compatibility."
