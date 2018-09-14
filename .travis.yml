@@ -1,7 +1,7 @@
 
 env:
    global:
-     - CONAN_REFERENCE: "flatbuffers/1.8.0"
+     - CONAN_REFERENCE: "flatbuffers/1.9.0"
      - CONAN_USERNAME: "camposs"
      - CONAN_LOGIN_USERNAME: "camposs"
      - CONAN_CHANNEL: "stable"
