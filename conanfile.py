@@ -27,10 +27,6 @@ class FlatBuffersConan(ConanFile):
             "https://github.com/google/flatbuffers/archive/v%s.tar.gz" % self.version,
             self.archive_name
         )
-        tools.check_sha256(
-            self.archive_name,
-            self.archive_sha256
-        )
         tools.unzip(self.archive_name)
         os.unlink(self.archive_name)
 
