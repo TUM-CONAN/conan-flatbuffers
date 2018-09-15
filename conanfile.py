@@ -20,7 +20,7 @@ class FlatBuffersConan(ConanFile):
     # The name of the archive that is downloaded from Github
     archive_name = "%s.tar.gz" % folder_name
     # The temporary build diirectory
-    build_dir = "./%s/build" % folder_name
+    build_dir = "./%s/buildpkg" % folder_name
 
     def source(self):
         tools.download(
