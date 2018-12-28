@@ -4,7 +4,7 @@ from conans.util import files
 
 
 class FlatBuffersConan(ConanFile):
-    version = "1.9.0"
+    version = "1.10.0"
     
     name = "flatbuffers"
     license = "https://github.com/google/flatbuffers/blob/master/LICENSE.txt"
