@@ -1,11 +1,11 @@
 import os
-from conans import ConanFile, CMake, tools
+
+from conans import CMake, ConanFile, tools
 from conans.util import files
 
 
 class FlatBuffersConan(ConanFile):
-    version = "1.10.0"
-    
+    version = "1.11.0"
     name = "flatbuffers"
     license = "https://github.com/google/flatbuffers/blob/master/LICENSE.txt"
     description = "FlatBuffers is an efficient cross platform serialization library for games and other memory constrained apps. It allows you to directly access serialized data without unpacking/parsing it first, while still having great forwards/backwards compatibility."
@@ -24,9 +24,8 @@ class FlatBuffersConan(ConanFile):
 
     def source(self):
         tools.download(
-            "https://github.com/google/flatbuffers/archive/v%s.tar.gz" % self.version,
-            self.archive_name
-        )
+            "https://github.com/google/flatbuffers/archive/v%s.tar.gz" %
+            self.version, self.archive_name)
         tools.unzip(self.archive_name)
         os.unlink(self.archive_name)
 
@@ -50,24 +49,18 @@ class FlatBuffersConan(ConanFile):
             os.rename("../LICENSE.txt", "../LICENSE.FlatBuffers")
 
     def package(self):
-        self.copy("flatc", dst="bin",
-                  src=self.build_dir, keep_path=False)
-        self.copy("flathash", dst="bin",
-                  src=self.build_dir, keep_path=False)
-        self.copy("*.exe", dst="bin",
-                  src=self.build_dir, keep_path=False)
-        self.copy("*.h", dst="include/flatbuffers",
-                  src="%s/include/flatbuffers" % self.folder_name)
-        self.copy("*.lib", dst="lib",
-                  src=self.build_dir, keep_path=False)
-        self.copy("*.dll", dst="bin",
-                  src=self.build_dir, keep_path=False)
-        self.copy("*.a", dst="lib",
-                  src=self.build_dir, keep_path=False)
-        self.copy("*.so*", dst="lib",
-                  src=self.build_dir, keep_path=False)
-        self.copy("*.dylib*", dst="lib",
-                  src=self.build_dir, keep_path=False)
+        self.copy("flatc", dst="bin", src=self.build_dir, keep_path=False)
+        self.copy("flathash", dst="bin", src=self.build_dir, keep_path=False)
+        self.copy("*.exe", dst="bin", src=self.build_dir, keep_path=False)
+        self.copy(
+            "*.h",
+            dst="include/flatbuffers",
+            src="%s/include/flatbuffers" % self.folder_name)
+        self.copy("*.lib", dst="lib", src=self.build_dir, keep_path=False)
+        self.copy("*.dll", dst="bin", src=self.build_dir, keep_path=False)
+        self.copy("*.a", dst="lib", src=self.build_dir, keep_path=False)
+        self.copy("*.so*", dst="lib", src=self.build_dir, keep_path=False)
+        self.copy("*.dylib*", dst="lib", src=self.build_dir, keep_path=False)
         self.copy("LICENSE.FlatBuffers", src=self.folder_name)
 
     def package_info(self):
